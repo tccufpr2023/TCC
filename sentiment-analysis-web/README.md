@@ -1,0 +1,1 @@
+## Deploy BERT for Sentiment Analysis in Portuguese
