@@ -1,33 +1,18 @@
-### Deep learning project seed
-Use this seed to start new deep learning / ML projects.
-
-- Built in setup.py
-- Built in requirements
-- Examples with MNIST
-- Badges
-- Bibtex
-
-#### Goals  
-The goal of this seed is to structure ML paper-code the same so that work can easily be extended and replicated.   
-
-### DELETE EVERYTHING ABOVE FOR YOUR PROJECT  
- 
----
-
 <div align="center">    
  
-# Your Project Name     
+# TCC | UFPR 2023
 
-[![Paper](http://img.shields.io/badge/paper-arxiv.1001.2234-B31B1B.svg)](https://www.nature.com/articles/nature14539)
-[![Conference](http://img.shields.io/badge/NeurIPS-2019-4b44ce.svg)](https://papers.nips.cc/book/advances-in-neural-information-processing-systems-31-2018)
-[![Conference](http://img.shields.io/badge/ICLR-2019-4b44ce.svg)](https://papers.nips.cc/book/advances-in-neural-information-processing-systems-31-2018)
-[![Conference](http://img.shields.io/badge/AnyConference-year-4b44ce.svg)](https://papers.nips.cc/book/advances-in-neural-information-processing-systems-31-2018)  
-<!--
-ARXIV   
-[![Paper](http://img.shields.io/badge/arxiv-math.co:1480.1111-B31B1B.svg)](https://www.nature.com/articles/nature14539)
--->
-![CI testing](https://github.com/PyTorchLightning/deep-learning-project-template/workflows/CI%20testing/badge.svg?branch=master&event=push)
+## DESENVOLVIMENTO DE UMA INTERFACE DE PROGRAMAÇÃO DE APLICAÇÃO PARA ANÁLISE DE SENTIMENTOS BASEADA EM PROCESSAMENTO DE LINGUAGEM NATURAL E APRENDIZADO DE MÁQUINA
 
+<p align="center">
+    <a href="https://www.python.org/downloads/release/python-370/" title="python version"><img src="https://img.shields.io/badge/Python-3.7%2B-blue.svg"></a>
+    <a href="https://github.com/cap-ntu/ML-Model-CI/actions" title="Build Status"><img src="https://github.com/cap-ntu/ML-Model-CI/actions/workflows/run_test.yml/badge.svg?branch=master"></a>
+    <a href="https://app.fossa.com/projects/custom%2B8170%2Fgithub.com%2Fcap-ntu%2FML-Model-CI?ref=badge_shield" title="FOSSA Status"><img src="https://app.fossa.com/api/projects/custom%2B8170%2Fgithub.com%2Fcap-ntu%2FML-Model-CI.svg?type=shield"></a>
+    <a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cap-ntu/ML-Model-CI&amp;utm_campaign=Badge_Grade" title="Codacy Badge"><img src="https://app.codacy.com/project/badge/Grade/bfb9f8b11d634602acd8b67484a43318"></a>
+    <a href="https://codebeat.co/a/yizheng-huang/projects/github-com-cap-ntu-ml-model-ci-master"><img alt="codebeat badge" src="https://codebeat.co/badges/343cc340-21c6-4d34-ae2c-48a48e2862ba" /></a>
+    <a href="https://github.com/cap-ntu/ML-Model-CI/graphs/commit-activity" title="Maintenance"><img src="https://img.shields.io/badge/Maintained%3F-YES-yellow.svg"></a>
+    <a href="https://gitter.im/ML-Model-CI/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge" title="Gitter"><img src="https://badges.gitter.im/ML-Model-CI/community.svg"></a>
+</p> 
 
 <!--  
 Conference   
@@ -35,55 +20,73 @@ Conference
 </div>
  
 ## Description   
-What it does   
+Este projeto tem como objetivo desenvolver uma Interface de Programação de Aplicação (API) para análise de sentimentos com base em técnicas de Processamento de Linguagem Natural (PLN) e Aprendizado de Máquina (AM). A API permite aos usuários analisar o sentimento de textos, identificando se são positivos, negativos ou neutros. 
 
 ## How to run   
 First, install dependencies   
 ```bash
 # clone project   
-git clone https://github.com/YourGithubName/deep-learning-project-template
-
-# install project   
-cd deep-learning-project-template 
-pip install -e .   
-pip install -r requirements.txt
- ```   
- Next, navigate to any file and run it.   
+git clone https://github.com/tccufpr2023/TCC.git 
+```
+[download B2W-Reviews01.csv](https://github.com/americanas-tech/b2w-reviews01)    
+ 
+ Next, navigate to tcc-ufpr folder and run it.   
  ```bash
 # module folder
-cd project
+cd tcc-ufpr
 
-# run module (example: mnist as your main contribution)   
-python lit_classifier_main.py    
+# run docker compose   
+docker compose up    
 ```
 
-## Imports
-This project is setup as a package which means you can now easily import any file into any other file like so:
-```python
-from project.datasets.mnist import mnist
-from project.lit_classifier_main import LitClassifier
-from pytorch_lightning import Trainer
+## How to use
+<p float="left">
 
-# model
-model = LitClassifier()
+ <img src="https://user-images.githubusercontent.com/105131652/186226747-206a5cb6-0390-445f-9ab7-aaa88827750e.jpg" width="200" />
 
-# data
-train, val, test = mnist()
+</p>
 
-# train
-trainer = Trainer()
-trainer.fit(model, train, val)
+## Request and response
+The backend API responds to POST requests on port 8000 with a JSON return body:
 
-# test using the best model!
-trainer.test(test_dataloaders=test)
+```http
+POST http://localhost:8000/predict
+content-type: application/json
+
+{
+       "text": "O aplicativo é o pior que existe"
+}
+
 ```
+```json
+{
+	"probabilities": {
+		"negative": 0.945719301700592,
+		"neutral": 0.046569958329200745,
+		"positive": 0.007710760459303856
+	},
+	"sentiment": "negative",
+	"confidence": 0.945719301700592
+}
+```
+
+## Licença
+
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
+
+## Contato
+
+Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato:
+
+- Nome: [sentiment analysis TCC-UFPR 2023]
+- Email: [sentiment.analysis.tcc.ufpr2023@gmail.com]
 
 ### Citation   
 ```
-@article{YourName,
-  title={Your Title},
-  author={Your team},
-  journal={Location},
-  year={Year}
+@article{G. Thais N. Jeferson,
+  title={DESENVOLVIMENTO DE UMA INTERFACE DE PROGRAMAÇÃO DE APLICAÇÃO PARA ANÁLISE DE SENTIMENTOS BASEADA EM PROCESSAMENTO DE LINGUAGEM NATURAL E APRENDIZADO DE MÁQUINA},
+  author={GODOI Thais and NASCIMENTO Jeferson},
+  journal={https://github.com/tccufpr2023/TCC.git)https://github.com/tccufpr2023/TCC.git},
+  year={2023}
 }
 ```   
