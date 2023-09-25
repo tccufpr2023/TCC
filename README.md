@@ -40,14 +40,13 @@ docker compose up
 ```
 
 ## How to use
+Inserira a frase na caixa de texto e click no botão submit.
 <p float="left">
-
- <img src="https://user-images.githubusercontent.com/105131652/186226747-206a5cb6-0390-445f-9ab7-aaa88827750e.jpg" width="200" />
-
+ <img src="web.png" width="800" />
 </p>
 
 ## Request and response
-The backend API responds to POST requests on port 8000 with a JSON return body:
+O backend API - REST responde as requisições na porta 8000 retornando um JSON no corpo da resposta:
 
 ```http
 POST http://localhost:8000/predict
