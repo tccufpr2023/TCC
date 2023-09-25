@@ -1,0 +1,6 @@
+POST http://localhost:8000/predict
+content-type: application/json
+
+{
+    "text": "O aplicativo é o melhor que existe"
+}
