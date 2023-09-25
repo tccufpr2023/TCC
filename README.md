@@ -69,11 +69,11 @@ content-type: application/json
 }
 ```
 
-## Licença
+## License
 
 Este projeto está licenciado sob a [Licença MIT](LICENSE).
 
-## Contato
+## Contact
 
 Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato:
 
